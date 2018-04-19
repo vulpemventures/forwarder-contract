@@ -1,0 +1,31 @@
+{
+  "name": "forwarder-contract",
+  "version": "1.0.0",
+  "description": "solidity smart contrct that forwards ETH and ERC20 token funds to the owner. Includes also a forwarder factory contract",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node_modules/.bin/truffle test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/vulpemventures/forwarder-contract.git"
+  },
+  "keywords": [
+    "solidity",
+    "smart",
+    "contract",
+    "ethereum",
+    "ether",
+    "erc20",
+    "token"
+  ],
+  "author": "altafan",
+  "license": "MIT",
+  "homepage": "https://bitbucket.org/vulpemventures/forwarder-contract#readme",
+  "dependencies": {
+    "truffle": "^4.1.6"
+  }
+}
