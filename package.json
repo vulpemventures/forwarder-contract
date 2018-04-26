@@ -26,6 +26,7 @@
   "license": "MIT",
   "homepage": "https://bitbucket.org/vulpemventures/forwarder-contract#readme",
   "dependencies": {
+    "abi-decoder": "^1.1.0",
     "truffle": "^4.1.6"
   }
 }
