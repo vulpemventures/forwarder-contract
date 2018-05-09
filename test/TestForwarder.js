@@ -9,7 +9,9 @@ contract("Forwarder", async (accounts) => {
   it("should forward eth sent to the contract to the owner", async () => {
     const prevBalance = web3.eth.getBalance(accounts[0]).toNumber()
     
-    await this.forwarder.sendTransaction({ from: accounts[1], value: 2 * Math.pow(10, 18) })
+    const { logs } = await this.forwarder.sendTransaction({ from: accounts[1], value: 2 * Math.pow(10, 18) })
+
+    assert.equal(logs[0].event, "Transfer", "should be equal")
 
     const nextBalance = web3.eth.getBalance(accounts[0]).toNumber()
     const contractBalance = web3.eth.getBalance(this.forwarder.address).toNumber()

@@ -4,6 +4,7 @@ contract Forwarder {
     // Address to which any funds (ETH) sent to this contract will be forwarded
     address public beneficiary;
 
+    event Transfer(address _to, uint _value);
     /**
     * Create the contract, and sets the destination address to that of the creator
     */
@@ -17,5 +18,7 @@ contract Forwarder {
     function() public payable {
         // throws on failure
         beneficiary.transfer(msg.value);
+
+        emit Transfer(beneficiary, msg.value);
     }
 }
