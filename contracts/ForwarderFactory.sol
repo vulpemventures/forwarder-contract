@@ -4,12 +4,12 @@ import "./Forwarder.sol";
 
 contract ForwarderFactory {
 
-    event ContractDeployed(address forwarderAddress);
+    event ContractDeployed(address forwarderAddress, address beneficiaryAddress);
     
     function create(address beneficiary, uint256 number) public {
     
         for (uint256 i = 0; i < number; i++) { 
-            emit ContractDeployed(new Forwarder(beneficiary));
+            emit ContractDeployed(new Forwarder(beneficiary), beneficiary);
         }
         
     }
