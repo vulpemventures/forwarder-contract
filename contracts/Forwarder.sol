@@ -4,7 +4,7 @@ contract Forwarder {
     // Address to which any funds (ETH) sent to this contract will be forwarded
     address public beneficiary;
 
-    event Transfer(address _to, uint _value);
+    event Transfer(address _to, uint _value, bytes32 eventId);
     /**
     * Create the contract, and sets the destination address to that of the creator
     */
@@ -19,6 +19,6 @@ contract Forwarder {
         // throws on failure
         beneficiary.transfer(msg.value);
 
-        emit Transfer(beneficiary, msg.value);
+        emit Transfer(beneficiary, msg.value, keccak256(msg.sender, msg.value, block.number, block.timestamp));
     }
 }

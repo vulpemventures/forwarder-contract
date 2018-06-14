@@ -20,4 +20,11 @@ contract("Forwarder", async (accounts) => {
     assert.equal(contractBalance, 0, "should be equal to zero")
   })
 
+  it('verify that 2 events do not have the same event id', async () => {
+    const firstResponse = await this.forwarder.sendTransaction({ from: accounts[1], value: 2 * Math.pow(10, 18) })
+    const secondResponse = await this.forwarder.sendTransaction({ from: accounts[1], value: 2 * Math.pow(10, 18) })
+
+    assert.notEqual(firstResponse.logs[0].args.eventId, secondResponse.logs[0].args.eventId, 'should not be equal')
+  })
+
 })
